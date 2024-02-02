@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>jotr</title>
+    <meta name="description" content="Save and share notes your way">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  </head>
+  <body>
+    <header>Something on top</header>
+    <div class="main">
+      <section
+        id="file-list"
+        hx-trigger="load"
+      >
+        File List
+        <%= render "file_list" %>
+      </section>
+
+      <section id="preview">
+        Preview
+        <%= render "file_preview" %>
+      </section>
+    </div>
+    <footer>&#128420;&nbsp;made with love</footer>
+  </body>
+</html>
