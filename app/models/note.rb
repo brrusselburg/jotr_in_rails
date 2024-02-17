@@ -1,7 +1,5 @@
 class Note < ApplicationRecord
-  NOTES_DIR = Dir.home + "/Notes/"
-
-  def def initialize(note)
+  def initialize(note)
     @note = File.open(note)
   end
 
@@ -13,8 +11,11 @@ class Note < ApplicationRecord
     # error for when it doesn't exist
   end
 
-  def note_contents
-    File.read("#{note}")
+  def self.note_contents(note)
+    body = File.readlines(note, chomp: true)
+    body[0]
+    # ^^ this is extremely close!! just need to figure out how to pass the note file path as an argument and that should work fingies crossed :00000000
+
     # opens the file and prints the body
     # maybe something if the file is empty
   end
