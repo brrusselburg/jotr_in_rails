@@ -1,8 +1,10 @@
 <ul>
-  <%= @notes.each do |note| %>
+  <%- @notes.each do |note| %>
+    <%- @name = File.basename(note, ".md") %>
+
     <li>
-      <a hx-get="/hi" hx-trigger="click" hx-target="#preview">
-      <%= File.basename(note) %>
+      <a href=<%="/notes/#{@name}" %>>
+      <%= @name %>
       </a>
     </li>
   <% end %>

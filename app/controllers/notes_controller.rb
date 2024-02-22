@@ -3,24 +3,27 @@ class NotesController < ApplicationController
 
   def index
     @notes = self.sync_notes
-    # might need to pull in the path and the name a la main.rs:44
+
+    # render_template('partial')
+    # assumption index -> #partial
   end
 
-  def preview(note)
-    content = File.readlines(note, chomp: true)
-    # ^^ this is extremely close!! just need to figure out how to pass the note file path as an argument and that should work fingies crossed :00000000
-    #content.each_with_index{ |line, i| puts "#{i+1}: #{line}"}
-  end
+  def show
+    name = "#{params[:id]}.md"
+    @notes = self.sync_notes
 
-  def self.hi(note)
-    File.readlines(note, chomp: true)
+    @md_content = File.readlines(File.join(NOTES_DIR, name), chomp: true)
+
+    render(:index)
   end
 
   private
 
   def sync_notes
     notes = Dir[File.join(NOTES_DIR, '*')]
-
-    notes
   end
 end
+
+# TODO: add Save button under preview div
+# TODO: make editable div under preview
+# TODO: go through the full CRUD methodology (update, delete, etc)

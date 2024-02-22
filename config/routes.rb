@@ -9,8 +9,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   get "/", to: "notes#index"
-
-  get "preview", to: "notes#preview"
-
-  get "hi", to: "notes#hi"
-end
+  resources(:notes)
+ end
