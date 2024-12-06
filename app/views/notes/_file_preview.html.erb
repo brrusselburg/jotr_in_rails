@@ -1,4 +1,4 @@
-<h1> <%= File.basename("/Users/benjirusselburg/Notes/hi.md") %> </h1>
+<h1> Previewing: <%= File.basename("/Users/benjirusselburg/Notes/hi.md") %> </h1>
 <div class="contents">
-  <%= NotesController.hi("/Users/benjirusselburg/Notes/hi.md") %>
+  <%= Note.note_contents("/Users/benjirusselburg/Notes/hi.md") %>
 </div>
